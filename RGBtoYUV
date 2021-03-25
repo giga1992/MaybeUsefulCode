@@ -1,0 +1,14 @@
+    private Color32[] RGBtoYUV(Color32[] pixels) {
+        Color32[] grayYUV = new Color32[pixels.Length];
+
+        for (int i = 0; i < grayYUV.Length; i++) {
+            /*Y*/
+            grayYUV[i].r = (byte)(pixels[i].r * 0.299f + pixels[i].g * 0.587f + pixels[i].b * 0.114f);
+            /*U*/
+            grayYUV[i].g = (byte)(pixels[i].r * -0.147f + pixels[i].g * -0.289f + pixels[i].b * 0.436f + 128);
+            /*V*/
+            grayYUV[i].b = (byte)(pixels[i].r * 0.615f + pixels[i].g * -0.515f + pixels[i].b * -0.100f + 128);
+
+        }
+        return grayYUV;
+    }
